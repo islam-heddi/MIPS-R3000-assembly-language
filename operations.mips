@@ -1,0 +1,29 @@
+#task4
+.data
+prompt: .asciiz "enter a number : "
+.text
+main:
+#waiting for the user to enter
+li $v0 4
+la $a0,prompt
+syscall
+#inputting and assigning the first value to the register
+li $v0 5
+move $t0,$v0
+syscall
+#waiting for the user to enter
+li $v0 4
+la $a0,prompt
+syscall
+#inputting and assigning the first value to the register
+li $v0 5
+move $t1,$v0
+syscall
+#adding the values
+add $t2,$t1,$t0
+#output add
+li $v0 1
+move $a0,$t2
+syscall
+li $v0 10
+syscall

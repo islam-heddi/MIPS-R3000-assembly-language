@@ -1,0 +1,46 @@
+.data
+tab_int: .word 200
+msg_s: .asciiz "\nsize : "
+msg_insert: .asciiz "\ninsert : "
+msg_affichage: .asciiz "\naffichage"
+msg_element: .asciiz "\nElement : "
+.text
+la $t0,tab_int
+la $a0,msg_s
+li $v0,4
+syscall
+li $v0,5
+syscall
+move $t1,$v0
+li $t2,0
+boucle:
+bge $t2,$t1,fin_boucle
+la $a0,msg_insert
+li $v0,4
+syscall
+li $v0,5
+syscall
+sw $v0,($t0)
+addi $t0,$t0,4
+addi $t2,$t2,1
+j boucle
+fin_boucle:
+la $t0,tab_int
+li $t2,0
+la $a0,msg_affichage
+li $v0,4
+syscall
+affichage:
+bge $t2,$t1,fin
+la $a0,msg_element
+li $v0,4
+syscall
+lw $a0,($t0)
+li $v0,1
+syscall
+addi $t0,$t0,4
+addi $t2,$t2,1
+j affichage
+fin:
+li $v0,10
+syscall

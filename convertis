@@ -1,0 +1,12 @@
+.data
+prompt: .asciiz "\nEntrer en bits : "
+a: .word 1024
+b: .word 8
+.text
+la $t0,prompt
+move $a0,$t0
+li $v0,4
+syscall
+li $v0,5
+syscall
+move $t0,$v0

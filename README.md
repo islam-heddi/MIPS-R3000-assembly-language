@@ -3,4 +3,5 @@ i used to study this in the university back in university year 2023/2024
 
 here i did all the example of the Practical work supposed to me in the campus
 
-if you ilked this please star it 
+IF you like this THEN
+            please star it 
